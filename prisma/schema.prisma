@@ -35,6 +35,8 @@ model User {
 model Profile {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
   userId      String       @unique @db.ObjectId
+  title       String?
+  location    String?
   bio         String?
   skills      String[]
   portfolio   String[]

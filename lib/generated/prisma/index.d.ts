@@ -2834,6 +2834,8 @@ export namespace Prisma {
   export type ProfileMinAggregateOutputType = {
     id: string | null
     userId: string | null
+    title: string | null
+    location: string | null
     bio: string | null
     xp: number | null
     level: number | null
@@ -2843,6 +2845,8 @@ export namespace Prisma {
   export type ProfileMaxAggregateOutputType = {
     id: string | null
     userId: string | null
+    title: string | null
+    location: string | null
     bio: string | null
     xp: number | null
     level: number | null
@@ -2852,6 +2856,8 @@ export namespace Prisma {
   export type ProfileCountAggregateOutputType = {
     id: number
     userId: number
+    title: number
+    location: number
     bio: number
     skills: number
     portfolio: number
@@ -2878,6 +2884,8 @@ export namespace Prisma {
   export type ProfileMinAggregateInputType = {
     id?: true
     userId?: true
+    title?: true
+    location?: true
     bio?: true
     xp?: true
     level?: true
@@ -2887,6 +2895,8 @@ export namespace Prisma {
   export type ProfileMaxAggregateInputType = {
     id?: true
     userId?: true
+    title?: true
+    location?: true
     bio?: true
     xp?: true
     level?: true
@@ -2896,6 +2906,8 @@ export namespace Prisma {
   export type ProfileCountAggregateInputType = {
     id?: true
     userId?: true
+    title?: true
+    location?: true
     bio?: true
     skills?: true
     portfolio?: true
@@ -2995,6 +3007,8 @@ export namespace Prisma {
   export type ProfileGroupByOutputType = {
     id: string
     userId: string
+    title: string | null
+    location: string | null
     bio: string | null
     skills: string[]
     portfolio: string[]
@@ -3026,6 +3040,8 @@ export namespace Prisma {
   export type ProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
+    title?: boolean
+    location?: boolean
     bio?: boolean
     skills?: boolean
     portfolio?: boolean
@@ -3043,6 +3059,8 @@ export namespace Prisma {
   export type ProfileSelectScalar = {
     id?: boolean
     userId?: boolean
+    title?: boolean
+    location?: boolean
     bio?: boolean
     skills?: boolean
     portfolio?: boolean
@@ -3052,7 +3070,7 @@ export namespace Prisma {
     endorsements?: boolean
   }
 
-  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "bio" | "skills" | "portfolio" | "xp" | "level" | "streak" | "endorsements", ExtArgs["result"]["profile"]>
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "title" | "location" | "bio" | "skills" | "portfolio" | "xp" | "level" | "streak" | "endorsements", ExtArgs["result"]["profile"]>
   export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     achievements?: boolean | Profile$achievementsArgs<ExtArgs>
@@ -3068,6 +3086,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string
+      title: string | null
+      location: string | null
       bio: string | null
       skills: string[]
       portfolio: string[]
@@ -3471,6 +3491,8 @@ export namespace Prisma {
   interface ProfileFieldRefs {
     readonly id: FieldRef<"Profile", 'String'>
     readonly userId: FieldRef<"Profile", 'String'>
+    readonly title: FieldRef<"Profile", 'String'>
+    readonly location: FieldRef<"Profile", 'String'>
     readonly bio: FieldRef<"Profile", 'String'>
     readonly skills: FieldRef<"Profile", 'String[]'>
     readonly portfolio: FieldRef<"Profile", 'String[]'>
@@ -9945,6 +9967,8 @@ export namespace Prisma {
   export const ProfileScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
+    title: 'title',
+    location: 'location',
     bio: 'bio',
     skills: 'skills',
     portfolio: 'portfolio',
@@ -10234,6 +10258,8 @@ export namespace Prisma {
     NOT?: ProfileWhereInput | ProfileWhereInput[]
     id?: StringFilter<"Profile"> | string
     userId?: StringFilter<"Profile"> | string
+    title?: StringNullableFilter<"Profile"> | string | null
+    location?: StringNullableFilter<"Profile"> | string | null
     bio?: StringNullableFilter<"Profile"> | string | null
     skills?: StringNullableListFilter<"Profile">
     portfolio?: StringNullableListFilter<"Profile">
@@ -10248,6 +10274,8 @@ export namespace Prisma {
   export type ProfileOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrder
+    title?: SortOrder
+    location?: SortOrder
     bio?: SortOrder
     skills?: SortOrder
     portfolio?: SortOrder
@@ -10265,6 +10293,8 @@ export namespace Prisma {
     AND?: ProfileWhereInput | ProfileWhereInput[]
     OR?: ProfileWhereInput[]
     NOT?: ProfileWhereInput | ProfileWhereInput[]
+    title?: StringNullableFilter<"Profile"> | string | null
+    location?: StringNullableFilter<"Profile"> | string | null
     bio?: StringNullableFilter<"Profile"> | string | null
     skills?: StringNullableListFilter<"Profile">
     portfolio?: StringNullableListFilter<"Profile">
@@ -10279,6 +10309,8 @@ export namespace Prisma {
   export type ProfileOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrder
+    title?: SortOrder
+    location?: SortOrder
     bio?: SortOrder
     skills?: SortOrder
     portfolio?: SortOrder
@@ -10299,6 +10331,8 @@ export namespace Prisma {
     NOT?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Profile"> | string
     userId?: StringWithAggregatesFilter<"Profile"> | string
+    title?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    location?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     bio?: StringNullableWithAggregatesFilter<"Profile"> | string | null
     skills?: StringNullableListFilter<"Profile">
     portfolio?: StringNullableListFilter<"Profile">
@@ -10774,6 +10808,8 @@ export namespace Prisma {
 
   export type ProfileCreateInput = {
     id?: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -10788,6 +10824,8 @@ export namespace Prisma {
   export type ProfileUncheckedCreateInput = {
     id?: string
     userId: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -10799,6 +10837,8 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateInput = {
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -10812,6 +10852,8 @@ export namespace Prisma {
 
   export type ProfileUncheckedUpdateInput = {
     userId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -10825,6 +10867,8 @@ export namespace Prisma {
   export type ProfileCreateManyInput = {
     id?: string
     userId: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -10835,6 +10879,8 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateManyMutationInput = {
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -10846,6 +10892,8 @@ export namespace Prisma {
 
   export type ProfileUncheckedUpdateManyInput = {
     userId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -11435,6 +11483,8 @@ export namespace Prisma {
   export type ProfileCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    title?: SortOrder
+    location?: SortOrder
     bio?: SortOrder
     skills?: SortOrder
     portfolio?: SortOrder
@@ -11453,6 +11503,8 @@ export namespace Prisma {
   export type ProfileMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    title?: SortOrder
+    location?: SortOrder
     bio?: SortOrder
     xp?: SortOrder
     level?: SortOrder
@@ -11462,6 +11514,8 @@ export namespace Prisma {
   export type ProfileMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
+    title?: SortOrder
+    location?: SortOrder
     bio?: SortOrder
     xp?: SortOrder
     level?: SortOrder
@@ -12442,6 +12496,8 @@ export namespace Prisma {
 
   export type ProfileCreateWithoutUserInput = {
     id?: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -12454,6 +12510,8 @@ export namespace Prisma {
 
   export type ProfileUncheckedCreateWithoutUserInput = {
     id?: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -12579,6 +12637,8 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateWithoutUserInput = {
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -12590,6 +12650,8 @@ export namespace Prisma {
   }
 
   export type ProfileUncheckedUpdateWithoutUserInput = {
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -13320,6 +13382,8 @@ export namespace Prisma {
 
   export type ProfileCreateWithoutAchievementsInput = {
     id?: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -13333,6 +13397,8 @@ export namespace Prisma {
   export type ProfileUncheckedCreateWithoutAchievementsInput = {
     id?: string
     userId: string
+    title?: string | null
+    location?: string | null
     bio?: string | null
     skills?: ProfileCreateskillsInput | string[]
     portfolio?: ProfileCreateportfolioInput | string[]
@@ -13359,6 +13425,8 @@ export namespace Prisma {
   }
 
   export type ProfileUpdateWithoutAchievementsInput = {
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
@@ -13371,6 +13439,8 @@ export namespace Prisma {
 
   export type ProfileUncheckedUpdateWithoutAchievementsInput = {
     userId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     skills?: ProfileUpdateskillsInput | string[]
     portfolio?: ProfileUpdateportfolioInput | string[]
