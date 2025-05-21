@@ -3,7 +3,7 @@ import NextAuth, { Session } from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import Credentials from "next-auth/providers/credentials"
 import { z } from "zod"
-import bcrypt from "bcrypt"
+import bcryptjs from "bcryptjs"
 import { JWT } from "next-auth/jwt"
 import { Role } from "./generated/prisma/client"
 
@@ -43,7 +43,7 @@ export const authOptions = {
             return null
           }
 
-          const isPasswordValid = await bcrypt.compare(
+          const isPasswordValid = await bcryptjs.compare(
             validatedCredentials.password,
             user.password
           )

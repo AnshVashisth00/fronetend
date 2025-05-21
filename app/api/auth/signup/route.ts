@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@/lib/generated/prisma/client';
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import { signupSchema } from '@/lib/validations/auth';
 import { z } from 'zod';
 
@@ -32,10 +32,8 @@ export async function POST(request: NextRequest) {
           { error: 'User with this email already exists' },
           { status: 409 }
         );
-      }
-
-      // Hash password
-      const hashedPassword = await bcrypt.hash(password, 10);
+      }      // Hash password
+      const hashedPassword = await bcryptjs.hash(password, 10);
 
       // Create user
       const user = await prisma.user.create({

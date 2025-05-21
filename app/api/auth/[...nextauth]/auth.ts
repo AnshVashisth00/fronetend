@@ -24,28 +24,34 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" }
-      },
-      async authorize(credentials) {
+      },      async authorize(credentials) {
         try {
           // Validate credentials with Zod
           const validatedCredentials = credentialsSchema.parse(credentials);
+          
+          console.log("Looking up user:", validatedCredentials.email);
           
           const user = await prisma.user.findUnique({
             where: { email: validatedCredentials.email }
           });
 
           if (!user) {
+            console.log("User not found");
             return null;
           }
 
+          console.log("Comparing passwords...");
           const isPasswordValid = await comparePasswords(
             validatedCredentials.password,
             user.password
           );
 
           if (!isPasswordValid) {
+            console.log("Invalid password");
             return null;
           }
+
+          console.log("Authentication successful");
 
           return {
             id: user.id,
